@@ -16,15 +16,78 @@
     <Filter Include="内部文件">
       <UniqueIdentifier>{d8ee3900-f2d4-471d-91e1-fcae2b7b0e5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\libflow">
+      <UniqueIdentifier>{13de4fe2-c520-4daa-b9df-3210839bb2d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内部文件\packet">
+      <UniqueIdentifier>{e3bd3fa5-7503-4307-8e29-50debcc447a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\packet">
+      <UniqueIdentifier>{2d8ac923-4791-4d2e-a7a0-d06b7c444425}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内部文件\flow">
+      <UniqueIdentifier>{5d9273b9-8493-4030-b480-d11488ec9723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\flow">
+      <UniqueIdentifier>{6305f135-50c8-41d2-a40b-2916635aeb4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\libflow.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\libflow\common.h">
+      <Filter>头文件\libflow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\libflow\flow.h">
+      <Filter>头文件\libflow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\libflow\flow_manager.h">
+      <Filter>头文件\libflow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\libflow\packet.h">
+      <Filter>头文件\libflow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\packet\packet.h">
+      <Filter>内部文件\packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\packet\packet_list.h">
+      <Filter>内部文件\packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\flow\flow_manager.h">
+      <Filter>内部文件\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\flow\flow_thread.h">
+      <Filter>内部文件\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\flow\flow_node.h">
+      <Filter>内部文件\flow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\internal\flow\flow_class.h">
+      <Filter>内部文件\flow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\libflow.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\packet\packet.cpp">
+      <Filter>源文件\packet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\packet\packet_list.cpp">
+      <Filter>源文件\packet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\flow\flow_manager.cpp">
+      <Filter>源文件\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\flow\flow_class.cpp">
+      <Filter>源文件\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\flow\flow_thread.cpp">
+      <Filter>源文件\flow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\flow\flow_node.cpp">
+      <Filter>源文件\flow</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

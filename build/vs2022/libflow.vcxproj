@@ -138,9 +138,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\libflow.h" />
+    <ClInclude Include="..\..\include\libflow\common.h" />
+    <ClInclude Include="..\..\include\libflow\flow.h" />
+    <ClInclude Include="..\..\include\libflow\flow_manager.h" />
+    <ClInclude Include="..\..\include\libflow\packet.h" />
+    <ClInclude Include="..\..\internal\flow\flow_class.h" />
+    <ClInclude Include="..\..\internal\flow\flow_manager.h" />
+    <ClInclude Include="..\..\internal\flow\flow_node.h" />
+    <ClInclude Include="..\..\internal\flow\flow_thread.h" />
+    <ClInclude Include="..\..\internal\packet\packet.h" />
+    <ClInclude Include="..\..\internal\packet\packet_list.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\flow\flow_class.cpp" />
+    <ClCompile Include="..\..\src\flow\flow_manager.cpp" />
+    <ClCompile Include="..\..\src\flow\flow_node.cpp" />
+    <ClCompile Include="..\..\src\flow\flow_thread.cpp" />
     <ClCompile Include="..\..\src\libflow.cpp" />
+    <ClCompile Include="..\..\src\packet\packet.cpp" />
+    <ClCompile Include="..\..\src\packet\packet_list.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
