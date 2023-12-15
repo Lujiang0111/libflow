@@ -17,6 +17,7 @@
 
 namespace lflow
 {
+
 constexpr int64_t kUsInNs = 1000LL;
 constexpr int64_t kMsInNs = 1000LL * kUsInNs;
 constexpr int64_t kSecInNs = 1000LL * kMsInNs;
