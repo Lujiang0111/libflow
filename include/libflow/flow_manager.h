@@ -27,6 +27,8 @@ public:
     virtual void DetachFromThread(FlowId flow_id) = 0;
 };
 
+LIBFLOW_API std::shared_ptr<IFlowManager> CreateFlowManager();
+
 }
 
 #endif // !LIBFLOW_INCLUDE_LIBFLOW_FLOW_MANAGER_H_

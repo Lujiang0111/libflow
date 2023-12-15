@@ -140,4 +140,9 @@ void FlowManager::DetachFromThread(FlowId flow_id)
     flow->GetFlowClass()->DetachFromThread(flow);
 }
 
+std::shared_ptr<IFlowManager> CreateFlowManager()
+{
+    return std::make_shared<FlowManager>();
+}
+
 }
