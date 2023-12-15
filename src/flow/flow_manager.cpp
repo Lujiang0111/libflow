@@ -73,6 +73,19 @@ void FlowManager::DeleteFlow(FlowId flow_id)
     flows_.erase(it);
 }
 
+bool FlowManager::ControlFlow(FlowId flow_id, const char *type, const char *param, void *opaque)
+{
+    std::lock_guard<std::mutex> lock(flow_mutex_);
+    auto it = flows_.find(flow_id);
+    if (flows_.end() == it)
+    {
+        return false;
+    }
+
+    FlowNode *flow = it->second.get();
+    return flow->Control(type, param, opaque);
+}
+
 bool FlowManager::ConnectFlow(FlowId parent_id, FlowId child_id)
 {
     std::lock_guard<std::mutex> lock(flow_mutex_);

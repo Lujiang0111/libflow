@@ -90,7 +90,7 @@ bool FlowNode::Process()
     if ((out_packet_list) && (out_packet_list->Size() > 0))
     {
         ret = true;
-        std::lock_guard<std::mutex> lock(flow_mutex_);
+        std::lock_guard<std::mutex> lock(child_flow_mutex_);
         for (auto &&flow : child_flows_)
         {
             auto ref_packet_list = out_packet_list->Reference();
@@ -102,9 +102,14 @@ bool FlowNode::Process()
     return ret;
 }
 
+bool FlowNode::Control(const char *type, const char *param, void *opaque)
+{
+    return flow_->Control(type, param, opaque);
+}
+
 void FlowNode::ConnectFlow(FlowNode *child_flow)
 {
-    std::lock_guard<std::mutex> lock(flow_mutex_);
+    std::lock_guard<std::mutex> lock(child_flow_mutex_);
     auto &&child_flow_it = std::find(child_flows_.begin(), child_flows_.end(), child_flow);
     if (child_flows_.end() != child_flow_it)
     {
@@ -116,7 +121,7 @@ void FlowNode::ConnectFlow(FlowNode *child_flow)
 
 void FlowNode::DisconnectFlow(FlowNode *child_flow)
 {
-    std::lock_guard<std::mutex> lock(flow_mutex_);
+    std::lock_guard<std::mutex> lock(child_flow_mutex_);
     auto child_flow_it = std::find(child_flows_.begin(), child_flows_.end(), child_flow);
     if (child_flows_.end() == child_flow_it)
     {

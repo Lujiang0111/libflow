@@ -27,6 +27,7 @@ public:
 
     void EnqueuePacketList(std::shared_ptr<IPacketList> in_packet_list);
     bool Process();
+    bool Control(const char *type, const char *param, void *opaque);
 
     void ConnectFlow(FlowNode *child_flow);
     void DisconnectFlow(FlowNode *child_flow);
@@ -41,7 +42,7 @@ private:
     CreateFlowFunc create_flow_func_;
     std::shared_ptr<IFlow> flow_;
 
-    std::mutex flow_mutex_;
+    std::mutex child_flow_mutex_;
     std::vector<FlowNode *> child_flows_;
 
     std::mutex in_packet_mutex_;

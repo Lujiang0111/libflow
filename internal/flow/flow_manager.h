@@ -24,6 +24,8 @@ public:
     virtual FlowId CreateFlow(const char *flow_class_name, const char *param, void *opaque);
     virtual void DeleteFlow(FlowId flow_id);
 
+    virtual bool ControlFlow(FlowId flow_id, const char *type, const char *param, void *opaque);
+
     virtual bool ConnectFlow(FlowId parent_id, FlowId child_id);
     virtual void DisconnectFlow(FlowId parent_id, FlowId child_id);
 
