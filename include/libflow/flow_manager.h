@@ -17,10 +17,10 @@ public:
 
     virtual bool RegisterFlowClass(const char *flow_class_name, CreateFlowFunc create_flow_func, size_t thread_bundle) = 0;
 
-    virtual FlowId CreateFlow(const char *flow_class_name, const char *param, void *opaque) = 0;
+    virtual FlowId CreateFlow(const char *flow_class_name, const char *param_str, void *opaque) = 0;
     virtual void DeleteFlow(FlowId flow_id) = 0;
 
-    virtual bool ControlFlow(FlowId flow_id, const char *type, const char *param, void *opaque) = 0;
+    virtual bool ControlFlow(FlowId flow_id, const char *type, const char *param_str, void *opaque) = 0;
 
     virtual bool ConnectFlow(FlowId parent_id, FlowId child_id) = 0;
     virtual void DisconnectFlow(FlowId parent_id, FlowId child_id) = 0;

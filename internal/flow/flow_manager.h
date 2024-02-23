@@ -21,10 +21,10 @@ public:
 
     virtual bool RegisterFlowClass(const char *flow_class_name, CreateFlowFunc create_flow_func, size_t thread_bundle);
 
-    virtual FlowId CreateFlow(const char *flow_class_name, const char *param, void *opaque);
+    virtual FlowId CreateFlow(const char *flow_class_name, const char *param_str, void *opaque);
     virtual void DeleteFlow(FlowId flow_id);
 
-    virtual bool ControlFlow(FlowId flow_id, const char *type, const char *param, void *opaque);
+    virtual bool ControlFlow(FlowId flow_id, const char *type, const char *param_str, void *opaque);
 
     virtual bool ConnectFlow(FlowId parent_id, FlowId child_id);
     virtual void DisconnectFlow(FlowId parent_id, FlowId child_id);

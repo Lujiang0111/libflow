@@ -17,10 +17,10 @@ FlowClass::~FlowClass()
 
 }
 
-std::shared_ptr<FlowNode> FlowClass::CreateFlow(const char *param, void *opaque)
+std::shared_ptr<FlowNode> FlowClass::CreateFlow(const char *param_str, void *opaque)
 {
     std::shared_ptr<FlowNode> flow = std::make_shared<FlowNode>(create_flow_func_);
-    if (!flow->Init(param, opaque))
+    if (!flow->Init(param_str, opaque))
     {
         return nullptr;
     }

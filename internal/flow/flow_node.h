@@ -21,13 +21,13 @@ public:
     explicit FlowNode(CreateFlowFunc create_flow_func);
     virtual ~FlowNode();
 
-    bool Init(const char *param, void *opaque);
+    bool Init(const char *param_str, void *opaque);
     void DeInit();
-    bool Modify(const char *param, void *opaque);
+    bool Modify(const char *param_str, void *opaque);
 
     void EnqueuePacketList(std::shared_ptr<IPacketList> in_packet_list);
     bool Process();
-    bool Control(const char *type, const char *param, void *opaque);
+    bool Control(const char *type, const char *param_str, void *opaque);
 
     void ConnectFlow(FlowNode *child_flow);
     void DisconnectFlow(FlowNode *child_flow);

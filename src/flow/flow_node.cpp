@@ -17,7 +17,7 @@ FlowNode::~FlowNode()
     DeInit();
 }
 
-bool FlowNode::Init(const char *param, void *opaque)
+bool FlowNode::Init(const char *param_str, void *opaque)
 {
     flow_ = create_flow_func_();
     if (!flow_)
@@ -25,7 +25,7 @@ bool FlowNode::Init(const char *param, void *opaque)
         return false;
     }
 
-    if (!flow_->Init(param, opaque))
+    if (!flow_->Init(param_str, opaque))
     {
         return false;
     }
@@ -44,14 +44,14 @@ void FlowNode::DeInit()
     flow_ = nullptr;
 }
 
-bool FlowNode::Modify(const char *param, void *opaque)
+bool FlowNode::Modify(const char *param_str, void *opaque)
 {
     if (!flow_)
     {
-        return Init(param, opaque);
+        return Init(param_str, opaque);
     }
 
-    return flow_->Modify(param, opaque);
+    return flow_->Modify(param_str, opaque);
 }
 
 void FlowNode::EnqueuePacketList(std::shared_ptr<IPacketList> in_packet_list)
@@ -102,9 +102,9 @@ bool FlowNode::Process()
     return ret;
 }
 
-bool FlowNode::Control(const char *type, const char *param, void *opaque)
+bool FlowNode::Control(const char *type, const char *param_str, void *opaque)
 {
-    return flow_->Control(type, param, opaque);
+    return flow_->Control(type, param_str, opaque);
 }
 
 void FlowNode::ConnectFlow(FlowNode *child_flow)

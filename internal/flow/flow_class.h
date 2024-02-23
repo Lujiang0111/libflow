@@ -18,7 +18,7 @@ public:
     FlowClass(const std::string &name, CreateFlowFunc create_flow_func, size_t thread_bundle);
     virtual ~FlowClass();
 
-    std::shared_ptr<FlowNode> CreateFlow(const char *param, void *opaque);
+    std::shared_ptr<FlowNode> CreateFlow(const char *param_str, void *opaque);
 
     void AttachToThread(FlowNode *flow);
     void DetachFromThread(FlowNode *flow);

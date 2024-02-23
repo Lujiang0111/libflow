@@ -33,7 +33,7 @@ bool FlowManager::RegisterFlowClass(const char *flow_class_name, CreateFlowFunc 
     return true;
 }
 
-FlowId FlowManager::CreateFlow(const char *flow_class_name, const char *param, void *opaque)
+FlowId FlowManager::CreateFlow(const char *flow_class_name, const char *param_str, void *opaque)
 {
     FlowClass *flow_class = nullptr;
     {
@@ -48,7 +48,7 @@ FlowId FlowManager::CreateFlow(const char *flow_class_name, const char *param, v
         flow_class = it->second.get();
     }
 
-    std::shared_ptr<FlowNode> flow = flow_class->CreateFlow(param, opaque);
+    std::shared_ptr<FlowNode> flow = flow_class->CreateFlow(param_str, opaque);
 
     FlowId flow_id = 0;
     {
@@ -73,7 +73,7 @@ void FlowManager::DeleteFlow(FlowId flow_id)
     flows_.erase(it);
 }
 
-bool FlowManager::ControlFlow(FlowId flow_id, const char *type, const char *param, void *opaque)
+bool FlowManager::ControlFlow(FlowId flow_id, const char *type, const char *param_str, void *opaque)
 {
     std::lock_guard<std::mutex> lock(flow_mutex_);
     auto it = flows_.find(flow_id);
@@ -83,7 +83,7 @@ bool FlowManager::ControlFlow(FlowId flow_id, const char *type, const char *para
     }
 
     FlowNode *flow = it->second.get();
-    return flow->Control(type, param, opaque);
+    return flow->Control(type, param_str, opaque);
 }
 
 bool FlowManager::ConnectFlow(FlowId parent_id, FlowId child_id)
