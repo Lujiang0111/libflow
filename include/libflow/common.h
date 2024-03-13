@@ -22,6 +22,9 @@ constexpr int64_t kUsInNs = 1000LL;
 constexpr int64_t kMsInNs = 1000LL * kUsInNs;
 constexpr int64_t kSecInNs = 1000LL * kMsInNs;
 
+constexpr int64_t kSecInMs = 1000LL;
+constexpr int64_t kSecInUs = 1000LL * kSecInMs;
+
 constexpr int64_t kMsInTs = 90LL;
 constexpr int64_t kSecInTs = 1000LL * kMsInTs;
 
